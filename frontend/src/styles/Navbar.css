@@ -1,0 +1,127 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  padding: 18px 0;
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(26, 26, 46, 0.97);
+  backdrop-filter: blur(12px);
+  padding: 12px 0;
+  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 2px;
+}
+
+.navbar-logo span {
+  color: var(--gold);
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+
+.navbar-links a {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.88rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.navbar-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.2s ease;
+}
+
+.navbar-links a:hover,
+.navbar-links a.active {
+  color: var(--white);
+}
+
+.navbar-links a:hover::after,
+.navbar-links a.active::after {
+  width: 100%;
+}
+
+.navbar-cta {
+  background: var(--gold);
+  color: var(--white) !important;
+  padding: 9px 22px;
+  border-radius: 6px;
+  font-weight: 500 !important;
+  transition: background 0.2s !important;
+}
+
+.navbar-cta:hover {
+  background: var(--gold-light) !important;
+}
+
+.navbar-cta::after {
+  display: none !important;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(26, 26, 46, 0.98);
+    flex-direction: column;
+    padding: 24px;
+    gap: 20px;
+  }
+
+  .navbar-links.open {
+    display: flex;
+  }
+}
